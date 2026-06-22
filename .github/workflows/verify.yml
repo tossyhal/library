@@ -154,7 +154,7 @@ jobs:
           key: ${{ runner.os }}-verify-result-${{ github.sha }}
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Build documentation
         uses: actions/jekyll-build-pages@v1
@@ -164,7 +164,7 @@ jobs:
 
       - name: Upload Pages artifact
         id: upload-pages
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
