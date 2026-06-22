@@ -4,6 +4,7 @@
 #include <vector>
 
 inline std::string smallest_concatenation(std::vector<std::string> strings) {
+    strings.erase(std::remove(strings.begin(), strings.end(), std::string()), strings.end());
     std::sort(strings.begin(), strings.end(), [](const std::string &a, const std::string &b) {
         const std::size_t size = a.size() + b.size();
         for (std::size_t i = 0; i < size; ++i) {

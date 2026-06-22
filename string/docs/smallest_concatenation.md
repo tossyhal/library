@@ -26,4 +26,4 @@ string answer = smallest_concatenation(strings);
 
 ## 検証
 
-- [Codeforces 632C - The Smallest String Concatenation](https://codeforces.com/contest/632/problem/C)
+- 小さなランダム入力について全順列を試す愚直解と比較

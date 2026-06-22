@@ -28,4 +28,4 @@ for (auto [value, count] : encoded) {
 
 ## 検証
 
-- [PAST17 E - 連長圧縮](https://atcoder.jp/contests/past17-open/tasks/past17_e)
+- 復元結果と隣接runの性質を全長12の二値列で検証

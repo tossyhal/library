@@ -33,4 +33,4 @@ int count = trie.count_prefix(prefix);
 
 ## 検証
 
-- [AtCoder ABC287 E - Karuta](https://atcoder.jp/contests/abc287/tasks/abc287_e)
+- ランダムな挿入・検索・完全一致・接頭辞数を愚直解と比較
