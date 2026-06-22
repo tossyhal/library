@@ -1,0 +1,24 @@
+# C++ build artifacts
+*.o
+*.obj
+*.out
+*.exe
+*.a
+*.so
+*.dylib
+
+# Local build directories
+build/
+cmake-build-*/
+
+# Editor and OS files
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Local agent configuration
+.serena/
+.codex
+.claude
+.agents
