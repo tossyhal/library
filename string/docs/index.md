@@ -19,6 +19,7 @@ title: String Algorithms
 - [Suffix Array](../suffix_array.hpp.html)
 - [LCP / String Search](../lcp.hpp.html)
 - [Rolling Hash](../rolling_hash.hpp.html)
+- [Dynamic Rolling Hash](../dynamic_rolling_hash.hpp.html)
 - [Suffix Automaton](../suffix_automaton.hpp.html)
 - [Suffix Tree](../suffix_tree.hpp.html)
 - [Longest Common Substring](../longest_common_substring.hpp.html)
