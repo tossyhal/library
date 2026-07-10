@@ -1,6 +1,7 @@
 #pragma once
 #include <array>
 #include <cassert>
+#include <cstdint>
 #include <queue>
 #include <vector>
 #include "trie.hpp"
@@ -9,10 +10,12 @@ template <int Sigma = 26, char Margin = 'a'> class AhoCorasick {
   public:
     struct Node {
         std::array<int, Sigma> next;
+        int parent = -1;
+        char parent_char = 0;
         int link = 0;
         int exit_count = 0;
         std::vector<int> pattern_ids;
-        Node() { next.fill(-1); }
+        Node(int p = -1, char c = 0) : parent(p), parent_char(c) { next.fill(-1); }
     };
 
     std::vector<Node> nodes{Node()};
@@ -28,7 +31,7 @@ template <int Sigma = 26, char Margin = 'a'> class AhoCorasick {
             assert(0 <= x && x < Sigma);
             if (nodes[v].next[x] == -1) {
                 nodes[v].next[x] = static_cast<int>(nodes.size());
-                nodes.emplace_back();
+                nodes.emplace_back(v, c);
             }
             v = nodes[v].next[x];
         }
@@ -44,6 +47,7 @@ template <int Sigma = 26, char Margin = 'a'> class AhoCorasick {
         std::queue<int> queue;
         bfs_order.clear();
         bfs_order.push_back(0);
+        nodes[0].exit_count = static_cast<int>(nodes[0].pattern_ids.size());
         for (int c = 0; c < Sigma; ++c) {
             int &next = nodes[0].next[c];
             if (next == -1) {
@@ -67,7 +71,6 @@ template <int Sigma = 26, char Margin = 'a'> class AhoCorasick {
                 }
             }
         }
-        nodes[0].exit_count = static_cast<int>(nodes[0].pattern_ids.size());
     }
 
     int next_state(int state, char c) const {
@@ -91,6 +94,17 @@ template <int Sigma = 26, char Margin = 'a'> class AhoCorasick {
         std::vector<int> result(pattern_node.size());
         for (int id = 0; id < static_cast<int>(pattern_node.size()); ++id) {
             result[id] = visits[pattern_node[id]] + (pattern_node[id] == 0);
+        }
+        return result;
+    }
+
+    template <class Sequence> std::int64_t count_all_matches(const Sequence &text) const {
+        assert(built);
+        std::int64_t result = nodes[0].exit_count;
+        int state = 0;
+        for (char c : text) {
+            state = next_state(state, c);
+            result += nodes[state].exit_count;
         }
         return result;
     }
