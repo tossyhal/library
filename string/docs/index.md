@@ -20,6 +20,7 @@ title: String Algorithms
 - [LCP / String Search](../lcp.hpp.html)
 - [Rolling Hash](../rolling_hash.hpp.html)
 - [Dynamic Rolling Hash](../dynamic_rolling_hash.hpp.html)
+- [2D Rolling Hash](../rolling_hash_2d.hpp.html)
 - [Suffix Automaton](../suffix_automaton.hpp.html)
 - [Suffix Tree](../suffix_tree.hpp.html)
 - [Longest Common Substring](../longest_common_substring.hpp.html)
