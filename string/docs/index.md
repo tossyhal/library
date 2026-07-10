@@ -30,6 +30,7 @@ title: String Algorithms
 
 - [Manacher](../manacher.hpp.html)
 - [Palindromic Tree](../palindromic_tree.hpp.html)
+- [Deque Palindromic Tree](../deque_palindromic_tree.hpp.html)
 - [Lyndon Words](../lyndon_word.hpp.html)
 - [Run Enumeration](../run_enumerate.hpp.html)
 
